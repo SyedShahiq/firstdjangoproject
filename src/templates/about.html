@@ -2,4 +2,12 @@
 {% block content %}
 	<h1>This is about us page.</h1>
 	<p>This is first template</p>
+	<p>	{{my_text}} , {{my_number}}</p>
+	<ul>
+		{% for render_my_list in my_list %}
+      {% if render_my_list == 1  %}
+        <li>{{render_my_list}}</li>
+      {% endif %}
+		{% endfor %}
+	</ul>
 {% endblock %}
