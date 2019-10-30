@@ -7,4 +7,9 @@ def home_view(request,*arg,**kwargs):
 	return render(request,'home.html',{})
 
 def about_view(request,*arg,**kwargs):
-	return render(request,'about.html',{})
+	my_context = {
+		'my_text': 'This is shahiq',
+		'my_number': '123421',
+		'my_list': [1,2,3,4,5,6,7]
+	} 
+	return render(request,'about.html',my_context)
