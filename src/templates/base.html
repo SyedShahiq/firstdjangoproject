@@ -11,8 +11,14 @@
 </head>
 <body>
 {% include 'navbar.html' %}
-	{% block content %}
-		replace block
-	{% endblock %}
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				{% block content %}
+					replace block
+					{% endblock %}
+			</div>
+		</div>
+	</div>
 </body>
 </html>
