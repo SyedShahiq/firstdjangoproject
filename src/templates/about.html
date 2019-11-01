@@ -7,6 +7,8 @@
 		{% for render_my_list in my_list %}
       {% if render_my_list == 1  %}
         <li>{{render_my_list}}</li>
+      {% elif render_my_list != 1 %}
+        <li>test</li>
       {% endif %}
 		{% endfor %}
 	</ul>
