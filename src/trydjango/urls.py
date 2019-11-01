@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from pages.views import about_view,home_view
-from products.views import products_view_page,products_create_view
+from products.views import products_view_page,products_create_view,products_render_data_view,dynamic_lookup_views
 urlpatterns = [
  	path('',home_view, name='home'),
  	path('about',about_view, name='about'),
  	path('products',products_view_page, name='products'),
  	path('add-products',products_create_view, name='add products'),
+ 	path('edit-products/<int:id>/',products_render_data_view, name='edit products'),
+ 	path('product/<int:id>/',dynamic_lookup_views, name='dynamic products'),
     path('admin/', admin.site.urls),
 ]
