@@ -8,6 +8,8 @@
 			{% else %}
 				<p>Desciption coming soon</p>
 			{%endif%}
+			<a href="/product/{{p.id}}">View</a>
+			<a href="/edit-products/{{p.id}}">Edit</a>
 		</div>
 	{% endfor %}
 {% endblock %}
