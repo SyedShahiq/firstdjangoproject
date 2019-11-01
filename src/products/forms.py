@@ -16,12 +16,12 @@ class productForm(forms.ModelForm):
 			'summary',
 			'featured'
 		]
-	def clean_title(self,*args,**kwargs):
-		title = self.cleaned_data.get("title")
-		if "abc" in title:
-			return title
-		else:
-			raise forms.ValidationError('This is not a valid title')
+	# def clean_title(self,*args,**kwargs):
+	# 	title = self.cleaned_data.get("title")
+	# 	if "abc" in title:
+	# 		return title
+	# 	else:
+	# 		raise forms.ValidationError('This is not a valid title')
 
 #Pure Django Form
 class productRawForm(forms.Form):

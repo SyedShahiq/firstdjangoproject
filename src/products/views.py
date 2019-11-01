@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import products
 from .forms import productForm,productRawForm
 
@@ -9,6 +9,17 @@ def products_create_view(request):
 	form = productForm(request.POST or None)
 	if form.is_valid():
 		form.save()
+	context = {
+	'form':form
+	}
+	return render(request,'products/product_create.html',context)
+
+def products_render_data_view(request,id):
+	product = products.objects.get(id=id)
+	form = productForm(request.POST or None,instance=product)
+	if form.is_valid():
+		form.save()
+		return redirect("/products")
 	context = {
 	'form':form
 	}
@@ -48,3 +59,9 @@ def products_view_page(request):
 	'product':product
 	}
 	return render(request,'products/product_detail.html',context)
+def dynamic_lookup_views(request,id):
+	product = products.objects.get(id=id)
+	context = {
+	'product':product
+	}
+	return render(request,'products/product_lookup.html',context)
