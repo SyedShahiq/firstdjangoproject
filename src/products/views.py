@@ -71,3 +71,22 @@ def dynamic_lookup_views(request,id):
 	'product':product
 	}
 	return render(request,'products/product_lookup.html',context)
+
+# def delete_product(request,id):
+# 	try:
+# 		product = products.objects.get(id=id)
+# 	except products.DoesNotExist:
+# 		return redirect("/products")
+# 	if request.method == "POST":
+# 		product.delete()
+# 		return redirect("/products")
+# 	context = {
+# 	'product':product
+# 	}
+# 	return render(request,'products/product_delete.html',context)
+
+def delete_product(request,id):
+	print(request.method)
+	query = products.objects.get(id=id)
+	query.delete()
+	return redirect("/products")
