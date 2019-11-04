@@ -15,7 +15,10 @@ def products_create_view(request):
 	return render(request,'products/product_create.html',context)
 
 def products_render_data_view(request,id):
-	product = products.objects.get(id=id)
+	try:
+		product = products.objects.get(id=id)
+	except products.DoesNotExist:
+		return redirect("/products")
 	form = productForm(request.POST or None,instance=product)
 	if form.is_valid():
 		form.save()
@@ -60,7 +63,10 @@ def products_view_page(request):
 	}
 	return render(request,'products/product_detail.html',context)
 def dynamic_lookup_views(request,id):
-	product = products.objects.get(id=id)
+	try:
+		product = products.objects.get(id=id)
+	except products.DoesNotExist:
+		return redirect("/products")
 	context = {
 	'product':product
 	}
