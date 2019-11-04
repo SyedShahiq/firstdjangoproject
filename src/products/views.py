@@ -6,13 +6,14 @@ from .forms import productForm,productRawForm
 # Create your views here.
 #Django Model Forms
 def products_create_view(request):
-	form = productForm(request.POST or None)
-	if form.is_valid():
-		form.save()
-	context = {
-	'form':form
-	}
-	return render(request,'products/product_create.html',context)
+  form = productForm(request.POST or None)
+  if form.is_valid():
+    form.save()
+    return redirect("/products")
+  context = {
+  'form':form
+  }
+  return render(request,'products/product_create.html',context)
 
 def products_render_data_view(request,id):
 	try:
