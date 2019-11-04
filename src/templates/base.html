@@ -8,6 +8,16 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.delete').click(function(){
+        var product_id = $(this).siblings('.id').text();
+        var title = $(this).siblings('h1').text();
+        $('.modal-body').text('Are you sure you want to delete ' + title + ' ?');
+        $('.delete-confirm').attr('href','/product/'+product_id+'/delete');
+      })
+    });
+  </script>
 </head>
 <body>
 {% include 'navbar.html' %}
